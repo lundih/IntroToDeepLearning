@@ -25,10 +25,10 @@ Returns:
 0 or 1: 0 indicates the point is classified as negative, 1 indicates positive
 """
 def prediction(X, W, b)
-	# This is a step function
-	if (np.matmul(X,W)+b)[0]) >= 0:
-		return 1
-	return 0
+    # This is a step function
+    if (np.matmul(X,W)+b)[0]) >= 0:
+        return 1
+    return 0
 
 
 """Generates new weights and bias (generating better placed boundaries)
@@ -68,11 +68,11 @@ point
 epochs: int. Number of times the algorithm passes through the entire dataset
 """
 def train(X, y, learn_rate = .01, epochs = 100):
-	# Generate random weights and bias for initial use. They are to get
-	# better with training 
-	W = np.array(np.random.rand(2,1))
- 	b = np.random.rand(1)[0] # + max(of X1 values)
-	for i in range(epochs):
+    # Generate random weights and bias for initial use. They are to get
+    # better with training 
+    W = np.array(np.random.rand(2,1))
+    b = np.random.rand(1)[0] # + max(of X1 values)
+    for i in range(epochs):
 		# Apply perceptron_step in each epoch
 		W, b = perceptron_step(X, y, W, b, learn_rate)
 
