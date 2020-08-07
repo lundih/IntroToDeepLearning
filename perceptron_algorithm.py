@@ -73,6 +73,6 @@ def train(X, y, learn_rate = .01, epochs = 100):
     W = np.array(np.random.rand(2,1))
     b = np.random.rand(1)[0] # + max(of X1 values)
     for i in range(epochs):
-		# Apply perceptron_step in each epoch
-		W, b = perceptron_step(X, y, W, b, learn_rate)
+        # Apply perceptron_step in each epoch
+        W, b = perceptron_step(X, y, W, b, learn_rate)
 
