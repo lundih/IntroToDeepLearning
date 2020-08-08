@@ -25,7 +25,7 @@ Returns:
 0 or 1: 0 indicates the point is classified as negative, 1 indicates positive
 """
 def prediction(X, W, b)
-    # This is a step function
+    # This is a discrete function
     if (np.matmul(X,W)+b)[0]) >= 0:
         return 1
     return 0
