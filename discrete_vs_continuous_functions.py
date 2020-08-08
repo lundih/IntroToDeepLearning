@@ -1,7 +1,7 @@
 import numpy as np
 # An error function allows us to tell how far a point is from the
 # boundary line. With discrete functions, we can only tell whether a 
-# point is misclassified or not. But win a continuous function we can 
+# point is misclassified or not. But with a continuous function we can 
 # also tell by what magnitude the point is misclassified (using the 
 # error function). This makes it more efficient when optimising the 
 # boundary line.
