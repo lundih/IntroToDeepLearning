@@ -14,37 +14,38 @@ np.random.seed(0)
 # The perceptron algorithm is run repeatedly (up to a certain point) on
 # the training dataset, improving the placement of the boundary line
 
-"""Generates a prediction on whether a point should be classified +ve/-ve
 
-Args:
-X: array. Inputs used for training
-W: array. Weights for the inputs
-b: double. Bias
-
-Returns:
-0 or 1: 0 indicates the point is classified as negative, 1 indicates positive
-"""
 def prediction(X, W, b)
+    """Generates a prediction on whether a point should be classified +ve/-ve
+
+    Args:
+    X: array. Inputs used for training
+    W: array. Weights for the inputs
+    b: double. Bias
+
+    Returns:
+    0 or 1: 0 indicates the point is classified as negative, 1 shows positive
+    """
     # This is a discrete function
     if (np.matmul(X,W)+b)[0]) >= 0:
         return 1
     return 0
 
 
-"""Generates new weights and bias (generating better placed boundaries)
-
-Args: 
-X: array. Inputs used for training
-y: array. The correct classifications of our inputs (labels)
-W: array. Weights for the inputs
-b: double. Bias
-learn_rate: double. Impacts how drastically the boundary line moves towards a 
-point
-
-Returns:
-W, b: W is an array of new weights and b is the new bias
-"""
 def perceptron_step(X, y, W, b, learn_rate):
+    """Generates new weights and bias (generating better placed boundaries)
+
+    Args: 
+    X: array. Inputs used for training
+    y: array. The correct classifications of our inputs (labels)
+    W: array. Weights for the inputs
+    b: double. Bias
+    learn_rate: double. Impacts how drastically the boundary line moves 
+    towards a point
+
+    Returns:
+    W, b: W is an array of new weights and b is the new bias
+    """
     for i in range(len(X)):
         y_prediction = prediction(X[i],W,b)
         if y[i]-y_prediction == 1:
@@ -58,16 +59,16 @@ def perceptron_step(X, y, W, b, learn_rate):
     return W, b
 
 
-"""Trains the model by obtaining a new boundary line with each epoch
-
-Args:
-X: array. Inputs
-y: array. Labels
-learn_rate: double. Impacts how drastically the boundary line moves towards a
-point
-epochs: int. Number of times the algorithm passes through the entire dataset
-"""
 def train(X, y, learn_rate = .01, epochs = 100):
+    """Trains the model by obtaining a new boundary line with each epoch
+
+    Args:
+    X: array. Inputs
+    y: array. Labels
+    learn_rate: double. Impacts how drastically the boundary line moves towards a
+    point
+    epochs: int. Number of times the algorithm passes through the entire dataset
+    """
     # Generate random weights and bias for initial use. They are to get
     # better with training 
     W = np.array(np.random.rand(2,1))
@@ -75,4 +76,3 @@ def train(X, y, learn_rate = .01, epochs = 100):
     for i in range(epochs):
         # Apply perceptron_step in each epoch
         W, b = perceptron_step(X, y, W, b, learn_rate)
-
